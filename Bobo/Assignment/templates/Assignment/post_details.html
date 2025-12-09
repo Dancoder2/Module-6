@@ -1,0 +1,39 @@
+{% extends "Assignment/base.html" %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center">
+
+    <div class="card border-0 shadow-sm" style="max-width: 750px; width: 100%;">  
+
+        <!-- Header bar -->
+        <div class="bg-primary text-white p-3 rounded-top">
+            <h2 class="mb-0">{{ post.title }}</h2>
+        </div>
+
+        <div class="card-body">
+
+            {% if post.published_date %}
+            <p class="text-muted mb-3">
+                <i class="bi bi-clock"></i>
+                Published: {{ post.published_date }}
+            </p>
+            {% endif %}
+
+            <div class="fs-5 lh-lg">
+                {{ post.text|linebreaksbr }}
+            </div>
+
+            <hr class="my-4">
+
+            <div class="text-end">
+                <a href="{% url 'post_list' %}" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Back to posts
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
